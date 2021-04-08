@@ -146,10 +146,44 @@ def es_par(num1):
         return False
 
 numero = int(input("Averiguo si un número es Par "))
-
 if es_par (numero) == True:
     print(f"{numero} es par")
 else:
     print(f"{numero} es impar")
     
+
+#Funcion en la que se usa elif
+def rendimiento(calif):
+    if calif >= 4.5 and calif <= 5.0:
+        print("Excelente")
+    elif calif >= 4.0 and calif < 4.5:
+        print("Bueno")
+    elif calif >= 3.5 and calif < 4.0:
+        print("Aceptable")
+    elif calif >= 3.0 and calif < 3.5:
+        print("Regular")
+    else:
+        print("Deficiente")
+
+print("\n Ingrese su calificación: ")
+print("y le diré como es su rendimiento academico. \n")
+calif = float(input("Ingrese calificación de 0 a 5"))
+if calif >= 0 and calif <= 5:
+    rendimiento(calif)
+else:
+    print("Calificación Invalida")
+
+print("Fin")
+
+#Funcion que calcula el producto de números dados por el usuario
+def producto_num(nu):
+    producto = 1
+    for cont in range(nu):
+        print("#", cont + 1, end = " ")
+        num2 = float(input(" "))
+        producto = producto * num2
+    return producto
+
+nu = int(input("Cantidad de números"))
+print(f"El producto de los {nu} números es {producto_num(nu)}")
 
