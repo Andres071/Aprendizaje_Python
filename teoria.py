@@ -187,3 +187,50 @@ def producto_num(nu):
 nu = int(input("Cantidad de números"))
 print(f"El producto de los {nu} números es {producto_num(nu)}")
 
+
+#Función que pregunta números al usuario y dice cuales fueron negativos, y cuanto sumaron los positivos
+def cuenta_numeros_suma(nu1):
+    cont_no_pos = 0
+    suma = 0
+    for cont in range(nu1):
+        print("#", cont + 1, end = " ")
+        num = int(input())
+        if num <= 0:
+            cont_no_pos = cont_no_pos + 1
+        else:
+            suma = suma + num
+    return [cont_no_pos, suma]
+
+nu1 = int(input("Cantidad de números a verificar: "))
+[cont_no_pos, suma] = cuenta_numeros_suma(nu1)  #Invocación de la función
+print(f"De los números dados {cont_no_pos} fueron negativos o ceros y los positivos sumaron {suma}")
+
+#Función que calcula la cantidad de números pares y suma los impares, contenidos en un conjunto de números
+def cuenta_pares_suma_impares(n1):
+    cont_par = 0
+    sum_impar = 0
+    for cont in range(n1):
+        print ("#", cont + 1, end = " ")
+        num = int(input())
+        if num % 2 == 0:
+            cont_par = cont_par + 1
+        else:
+            sum_impar = sum_impar + num
+    print(f"Los números pares son: {cont_par} y la suma de los impares es: {sum_impar}")
+#otra opcion de invocacion seria [cont_par, sum_impar] = cuenta_pares_suma_impares(n1), para qye esta funcione la funcion debe retornar cont_par y sum_impar
+n1 = int(input("Ingrese la cantidad de números a verificar: "))
+cuenta_pares_suma_impares(n1)
+
+#Función que halla el mayor de cierta cantidad de números dados por el usuario
+def num_mayor(num3):
+    mayor = 0
+    for cont in range (num3):
+        print("#", cont + 1, end " ")
+        num = int(input())
+        if num > mayor:
+            mayor = num
+    return mayor
+
+num3 = int(inpuy("Ingrese la cantidad de números: "))
+mayor = num_mayor(num3)
+print(f"El número mayor de los ingresados es: {mayor}")
