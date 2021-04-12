@@ -281,7 +281,7 @@ else:
 def opc_cuadrado(num6):
     cuadrado = []
     for cont in range (1, 2 * num6 + 1, 2):  # se multiplica por dos para calcular cuales son los impares
-        
+
         cuadrado.append(cont)
         sum = 0
     for i in (cuadrado):
@@ -321,6 +321,70 @@ if cumple == True:
 else:
     print("La curiosidad no se cumple")
 print("FIN")
+
+
+#FUNCIONES QUE LLAMAN A OTRAS FUNCIONES
+
+#Escribir los impares o los impares de acuerdo a la selccion del usuario
+def escribe_pares(n):
+    for cont in range(2, n + 1, 2 ):
+        print(cont, end = " ")
+
+def producto_impares(n):
+    prodcucto = 1
+    for cont in range(1, n + 1, 2):
+        producto = producto * cont
+    return producto
+
+def pares_producto_impar(n):
+    if n % 2 == 0:
+        escribe_pares(n)
+    else:
+        producto = producto_impares(n)
+        print("El producto de 1 a ", n, "es ", producto)
+
+print("Ingrese un número positivo")
+print("Si el número es par, escribo los pares hasta el indicado")
+print("Si es impar, multiplico los impares desde uno hasta el indicado")
+numero = int(input("Número = : "))
+
+pares_producto_impar(numero)
+
+
+#calcular el máximo divisor de un número ????
+def maximo_divisor(n):
+    num = n // 2
+    while num >= 2:
+        if n % 2 == 0:
+            return num
+        num = num - 1
+    return 0
+
+num = int(input("Ingrese el número entero"))
+md = maximo_divisor(num)
+if md == 0 or num == 2:
+    print(f"El número {num} es primo")
+else:
+    print(f" El máximo divisor de {num} es {int(md)}.")
+
+
+
+#Obtener el resultado de elevar BASE a EXPONENTE  sin usar el operador de potencia
+def potencia(base, exponente):
+    base_to_exp = 1
+    cont = 1
+    while cont <= exponente:
+        base_to_exp = base_to_exp * base
+        cont = cont + 1
+    return base_to_exp
+
+base = float(input("Base = : "))
+exponente = int(input("Exponente = : "))
+if exponente >= 0:
+    res = potencia(base, exponente)
+    print("=> ", base, "^", exponente, "= ", res )
+else:
+    print("El exponente debe ser positivo o cero")
 
 
 
