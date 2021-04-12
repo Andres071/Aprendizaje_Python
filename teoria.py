@@ -225,12 +225,102 @@ cuenta_pares_suma_impares(n1)
 def num_mayor(num3):
     mayor = 0
     for cont in range (num3):
-        print("#", cont + 1, end " ")
+        print("#", cont + 1, end =  " ")
         num = int(input())
         if num > mayor:
             mayor = num
     return mayor
 
-num3 = int(inpuy("Ingrese la cantidad de números: "))
+num3 = int(input("Ingrese la cantidad de números: "))
 mayor = num_mayor(num3)
 print(f"El número mayor de los ingresados es: {mayor}")
+
+
+#Hallar el número menor de los dados por el usuario
+def menor_de_numeros(num4):
+    menor = int(input("Ingrese el primer número: "))
+    for cont in range (num4 - 1):
+        print("#", cont + 2, end = " " )
+        num = int(input())
+        if num < menor:
+            menor = num
+    return menor
+
+num4 = int(input("Ingrese la cantidad de números a verificar: "))
+menor = menor_de_numeros(num4)
+print(f"De los números dados {menor} es el número menor")
+
+
+#Escribir los números pares en orden descendente desde el ingresado por el usuario
+def pares_desc(num5):
+    print("Los números pares de ", num5, " a uno son: ")
+    for cont in range(num5, 0, -2):
+        print(cont, end =" ")
+
+num5 = int(input("cantidad de Números a verificar: "))
+if num5 % 2 == 0:
+    pares_desc(num5)    #Ejemplo de invocación de la funcion
+else:
+    pares_desc(num5 - 1)    #Ejemplo de invocación de la funcion
+
+
+#Escirbir los impares de uno al ingresado por el usuario
+def impar_ascen(num5):
+    print("Los números impares de uno hasta", num5, "son: ")
+    for cont in range (1, num5 + 1, 2):
+        print(cont, end = " ")
+
+num5 = int(input("Ingrese el número hasta donde desea verificar: "))
+if num5 % 2 == 0:
+    impar_ascen(num5 + 1)
+else:
+    impar_ascen(num5)
+
+
+#Curiosidad Matemática TERNIMADO EJERCICIO PERSONAL, CALCULO DEL CUADRADO DE UN NÚMERO (n) SUMANDO LOS PRIMEROS NUMEROS (n)IMPARES 
+def opc_cuadrado(num6):
+    cuadrado = []
+    for cont in range (1, 2 * num6 + 1, 2):  # se multiplica por dos para calcular cuales son los impares
+        
+        cuadrado.append(cont)
+        sum = 0
+    for i in (cuadrado):
+        sum = sum + i
+    print(sum)
+    
+        
+num6 = int(input("De que numero desea averiguar el cuadrado: "))
+opc_cuadrado(num6)
+
+#Ejemplo 19 Curioidad Matemática
+def pide_num_positivo(que):
+    n = -1  #Para que el valor de n sea solicitado al menos una vez
+    while n < 1:
+        print(que, "(>0)", end = " ")
+        n = int(input())
+    return n
+
+def curiosidad(n):
+    suma_imp = 0
+    for impar in range (1, 2 * n + 1, 2):
+        suma_imp = suma_imp + impar
+    if n ** 2 == suma_imp:
+        return [True, suma_imp]
+    else:
+        return [False, suma_imp]
+
+print("Verifico la curiosidad matemática que dice que el\n cuadrado de un número dado (n)")
+print("es la suma de los primeros números impares (n)")
+print("Ejemplo: si (n) es igual a 7, entonces 7^2 = 1 + 3 + 5 + 7 + 9 + 11 + 13 = 49")
+
+n = pide_num_positivo("Número")
+[cumple, suma_imp] = curiosidad(n)
+if cumple == True:
+    print(f"La curiosisdad si se cumple {n} ^2 = {suma_imp}")
+    print(f"que corresponde a la suma de los impares entre 1 y {n}.")
+else:
+    print("La curiosidad no se cumple")
+print("FIN")
+
+
+
