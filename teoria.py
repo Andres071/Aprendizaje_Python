@@ -368,7 +368,6 @@ else:
     print(f" El máximo divisor de {num} es {int(md)}.")
 
 
-
 #Obtener el resultado de elevar BASE a EXPONENTE  sin usar el operador de potencia
 def potencia(base, exponente):
     base_to_exp = 1
@@ -382,9 +381,39 @@ base = float(input("Base = : "))
 exponente = int(input("Exponente = : "))
 if exponente >= 0:
     res = potencia(base, exponente)
-    print("=> ", base, "^", exponente, "= ", res )
+    print("=> ", base, "^", exponente, "= ", res)
 else:
     print("El exponente debe ser positivo o cero")
+
+
+ #EJECUCION A PARTIR DE LA FUNCION MAIN()
+
+ #Calcula el maximo común divisor de dos números
+def calc_mcd(n1, n2):
+    mcd = 1
+    divisor = 2
+    num1 = n1
+    num2 = n2
+    while divisor <= num1 and divisor <= num2:
+        if num1 % divisor == 0 and num2 % divisor == 0:
+            mcd = divisor
+        divisor = divisor + 1
+    return mcd
+
+def main():
+    print("Averiguo el máximo común divisor de dos números enteros")
+    num1 = int(input("Ingrese el primer número: "))
+    num2 = int(input("Ingrese el segundo número: "))
+    if num1 > 0 and num2 > 0:
+        print(f"El MCD entre {num1} y {num2} es {calc_mcd(num1, num2)}")
+        print("El MCD de", num1, "y", num2, "es", calc_mcd(num1, num2))
+    else:
+        print("Ingreso números ceros o números negativos")
+
+main()  #Importante llamar la funcion 
+
+        
+
 
 
 
