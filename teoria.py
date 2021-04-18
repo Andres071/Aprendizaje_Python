@@ -412,8 +412,120 @@ def main():
 
 main()  #Importante llamar la funcion 
 
-        
+
+#Calcula el índice de Masa corporal IMC
+def calc_imc():
+    masa = float(input("Cuál es su peso en Kilos?  --> "))
+    estatura = float(input("Cuál es su estatura en metros? --> "))
+    imc = masa // (estatura ** 2)
+    return [masa, estatura, imc]
+
+def main():
+    [masa, estatura, imc] = calc_imc()      #Invocacion de la funcion
+    print(f"Como su peso es {masa} kilos, y su altura es {estatura} metros ", end = " "  )
+    print(f"Su índice de masa corporal es {imc}")
+
+main()
 
 
+#Averigua si un entero positivo mayor que 1 es primo
+def es_primo(numero):
+    primo = True
+    posible_divisor = 2
+    while primo == True and posible_divisor <= numero // 2:
+        if numero % 2 == 0:
+            primo = False
+        posible_divisor = posible_divisor + 1
+    return primo
+
+def main():
+    print("Ingrese el número que desea verificar si es primo, debe ser mayor que uno: -->  ")
+    num = int(input("Ingrese el número: "))
+    if es_primo(num) == True:
+        print(num, "Es PRIMO")
+    else:
+        print(num, "NO es primo")
+    
+main()
+
+#Extrae las últimas tres cifras de un número de más de tres cifras
+def ultimas_tres(n):
+    cont = 1
+    pot10 = 1
+    num3cifras = 0
+    while cont <= 3:
+        num = n - (n // 10)*10
+        #print("num = ",num)
+        num3cifras = num3cifras + num * pot10
+        #print("num3cifras = ", num3cifras)
+        pot10 = pot10 * 10
+        #print("pot10 = ", pot10)
+        n = n // 10
+        #print("n = ", n)
+        cont = cont + 1
+    return num3cifras
+
+def main():
+    numero = int(input("Ingrese número entero de más de tres cifras: "))
+    num3 = ultimas_tres(numero)
+    print(f"Las últimas tres cifras del dato ingresado son: --->  {num3}")
+
+main()
+
+#Calcula la potencia de 2 que es  menor o igual que un número dado
+def mayor_pot2_menor_que_n(n):
+    valor = 1
+    potencia = 0
+    while valor < n:
+        valor = valor * 2
+        potencia = potencia + 1
+    if valor == n:
+        return potencia
+    else:
+        return potencia - 1
+
+
+def main():
+    print("Ingrese un número positivo y yo le devuelvo la mayor potencia de 2, menor o igual que dicho número")
+    numero = int(input("Número =  "))
+    mayorpot_2 = mayor_pot2_menor_que_n(numero)
+    print(mayorpot_2, "Es la mayor potencia de dos, menor o igual que", numero)
+    print("Es decir,", 2 ** mayorpot_2, "<=", numero)
+
+main()
+
+#Soluciona una ecuación cuadrática, es deir, una ecuación de la forma ax^2 + bx + c = 0; a,b,c e R, a diferente 0
+def ingresa_coeficientes():
+    print("Valor de los coeficientes: --->")
+    a = float(input("a = "))
+    b = float(input("b = "))
+    c = float(input("c = "))
+    return[a, b, c]
+
+def solu_ecuacion(a, b, c):
+    print("La ecuación ", a, "x^2 + ", b, "x + ", c, " = 0 tiene dos soluciones")
+    disc = b ** 2 - 4 * a * c
+    if disc > 0:
+        s1 = (-b + (disc) ** 0.5) / (2 * a)
+        s2 = (-b - (disc) ** 0.5) / (2 * a)
+        print("reales: x1 = ", format(s1, ".2f"), "y x2 = ", format(s2, ".2f"))  # format se usa para definir la cantidad de decimales a usar
+    elif disc < 0:
+        p_r = -b / (2 * a)
+        p_i =((-disc) ** 0.5) / (2 * a)
+        print("complejas: \n\n\tx1 =", format(p_r, ".2f"), "+", format(p_i, ".2f"), "i")
+        print("\n\tx2 = ", format(p_r, ".2f"), " - ", format(p_i, ".2f"), "i")
+    else:
+        #disc es cero
+        print("reales e iguales: x1 = x2 = ", format( - b / (2 * a), ".2f"))
+
+def main():
+    print("\n\t Solucione ecuaciones cuadráticas, es decir, ecuaciones de la forma")
+    print("\tax^2+bx+c=0; a, b, c que pertenecen al conjunto de los números reales.")
+    print("Intentemoslo...")
+    [a, b, c] = ingresa_coeficientes()
+    solu_ecuacion(a, b, c)
+    print("Fin")
+
+main()
 
 
