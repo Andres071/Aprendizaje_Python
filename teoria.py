@@ -508,7 +508,7 @@ def solu_ecuacion(a, b, c):
     if disc > 0:
         s1 = (-b + (disc) ** 0.5) / (2 * a)
         s2 = (-b - (disc) ** 0.5) / (2 * a)
-        print("reales: x1 = ", format(s1, ".2f"), "y x2 = ", format(s2, ".2f"))  # format se usa para definir la cantidad de decimales a usar
+        print("reales: x1 = ", format(s1, ".2f"), "y x2 = ", format(s2, ".2f"))  # format se usa para definir la cantidad de decimales a usar 
     elif disc < 0:
         p_r = -b / (2 * a)
         p_i =((-disc) ** 0.5) / (2 * a)
@@ -527,5 +527,88 @@ def main():
     print("Fin")
 
 main()
+
+#Escribe en orden descendente los números pares de un intervalo
+def pide_limite():  #Pide los limites
+    a = int(input(" a = : "))
+    b = int(input("\tb = : "))
+    return [a,b]
+
+def escribe_pares(lsup, linf):
+    for par in range (lsup, linf - 1, - 2):
+        print(par, end = " ")
+
+def main():
+    print("\n\tIngrese los límites enteros del interbalo [a,b] y yo le escribo")
+    print("\n\tlos pares que este contiene, en orden descendente")
+    [a,b] = pide_limite()
+    print("\n\tLos pares que pertenecen al intervalo [",a, ",",b, "]", end = " ")
+    print("en orden descendente, son \n\t", end = " ")
+    if b % 2 == 0:
+        escribe_pares(b,a)
+    else:
+        escribe_pares(b -1, a)
+
+main()
+
+
+#Pide números y regresa el mayor y el menor
+def pide_entero():
+    n = int(input("Ingrese cantidad de números: "))
+    return n
+
+def menor_mayor(n):
+    num = float(input("Ingrese el primer número: "))
+    menor = num
+    mayor = num
+    for cont in range (1, n):
+        num = float(input("Ingrese el siguiente número: "))
+        if num > mayor:
+            mayor = num
+        if num < menor:
+            menor = num
+    return [menor, mayor]
+
+def main():
+    print("Obtengo el menor y el mayor de los números dados")
+    n = pide_entero()
+    [menor, mayor] = menor_mayor(n)
+    print("El menor de los", n, "números dados es", menor, "y el mayor es", mayor)
+
+main()
+
+
+#Hallar la cantidad y la suma de los divisores de un número dado
+def pide_ent_pos(que):
+    n = 0 #se inicializa en cero para que entre al ciclo while al menos una vez
+    while n < 1:
+        print("\n", que, "(>0)", end = " ")
+        n = int(input(()))
+    return n
+
+def cuenta_suma(n):
+    c_div = 2
+    s_div = n + 1 #se sabe que n y 1 son divisores del número n
+    for posible_div in range (2, n // 2 + 1): #no hay divisores de n mayores que n // 2
+        if n % posible_div == 0:
+            c_div = c_div + 1
+            s_div = s_div + posible_div
+    return [c_div, s_div]
+
+def main():
+    print("Averiguo la cantidad de divisores de un número entero positivo y su suma")
+    n = pide_ent_pos("Número")
+
+    [cant_div, suma_div] = cuenta_suma(n)
+    print(f"El número {n} tiene {cant_div} divisores, los cuales suman {suma_div}")
+
+main()
+
+
+    
+
+
+
+
 
 
